@@ -25,7 +25,7 @@ typedef struct StackNode { char *low, *high; } StackNode;
 // integer log base 2
 #if defined __GNUC__
 
-static inline int _log2(size_t x) { return __builtin_ffsll(x); }
+static inline int _log2(size_t x) { return 63 - __builtin_clzll(x); }
 
 #elif defined _WIN32
 
